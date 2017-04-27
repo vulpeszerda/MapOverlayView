@@ -73,11 +73,13 @@ public class MapOverlayLayout extends FrameLayout
     }
 
     public void refresh() {
-        Projection projection = googleMap.getProjection();
-        MarkerView markerView;
-        for (int i = 0; i < markersList.size(); i++) {
-            markerView = markersList.get(i);
-            markerView.onProjectionChanged(projection);
+        if (googleMap != null) {
+            Projection projection = googleMap.getProjection();
+            MarkerView markerView;
+            for (int i = 0; i < markersList.size(); i++) {
+                markerView = markersList.get(i);
+                markerView.onProjectionChanged(projection);
+            }
         }
     }
 
