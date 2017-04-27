@@ -123,8 +123,10 @@ public class MapOverlayLayout extends FrameLayout
         }, 0, 2);
     }
 
-    public void addMarker(MarkerOptions markerOptions) {
-        addMarker(new MarkerView(getContext(), markerOptions));
+    public MarkerView addMarker(MarkerOptions markerOptions) {
+        MarkerView markerView = new MarkerView(getContext(), markerOptions);
+        addMarker(markerView);
+        return markerView;
     }
 
     public void addMarker(MarkerView view) {

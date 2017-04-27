@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
  * Created by vulpes on 2017. 4. 20..
  */
 
-final class InfoWindowView extends FrameLayout {
+public final class InfoWindowView extends FrameLayout {
 
     private final MarkerView markerView;
     private final View internalView;

@@ -2,14 +2,17 @@ package com.vulpeszerda.mapoverlayviewdemo;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.vulpeszerda.mapoverlayview.InfoWindowView;
 import com.vulpeszerda.mapoverlayview.MapOverlayLayout;
 import com.vulpeszerda.mapoverlayview.MarkerOptions;
+import com.vulpeszerda.mapoverlayview.MarkerView;
 
 import static com.vulpeszerda.mapoverlayviewdemo.R.id.map;
 
@@ -28,6 +31,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         mapOverlayLayout = (MapOverlayLayout) findViewById(R.id.map_overlay);
+
+        mapOverlayLayout.setOnInfoWindowClickedListener(
+                new MapOverlayLayout.OnInfoWindowClickedListener() {
+                    @Override
+                    public void onInfoWindowClickedListener(InfoWindowView infoWindowView) {
+                        Log.d("TEST11", "info window clicked : " + infoWindowView.getMarkerView()
+                                .getTitle());
+                    }
+                });
+        mapOverlayLayout.setOnMarkerClickedListener(new MapOverlayLayout.OnMarkerClickedListener() {
+            @Override
+            public void onMarkerClicked(MarkerView markerView) {
+                Log.d("TEST11", "marker clicked : " + markerView.getTitle());
+            }
+        });
     }
 
 

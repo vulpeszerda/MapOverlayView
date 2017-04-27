@@ -185,12 +185,11 @@ public class MarkerView extends View {
     public void updateLayoutParams() {
         MapOverlayLayout.LayoutParams params = (MapOverlayLayout.LayoutParams) getLayoutParams();
         if (params == null) {
-            params = new MapOverlayLayout.LayoutParams(
-                    MapOverlayLayout.LayoutParams.WRAP_CONTENT,
-                    MapOverlayLayout.LayoutParams.WRAP_CONTENT);
+            params = new MapOverlayLayout.LayoutParams(bounds.width(), bounds.height());
+        } else {
+            params.width = bounds.width();
+            params.height = bounds.height();
         }
-        params.width = bounds.width();
-        params.height = bounds.height();
         params.leftMargin = coordinate.x - Math.round(params.width * anchorLeft);
         params.topMargin = coordinate.y - Math.round(params.height * anchorTop);
         super.setLayoutParams(params);
