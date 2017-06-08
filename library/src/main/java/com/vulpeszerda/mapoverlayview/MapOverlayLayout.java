@@ -66,10 +66,6 @@ public class MapOverlayLayout extends FrameLayout
 
     public void setupMap(final GoogleMap googleMap) {
         this.googleMap = googleMap;
-        this.googleMap.setOnCameraIdleListener(this);
-        this.googleMap.setOnCameraMoveStartedListener(this);
-        this.googleMap.setOnCameraMoveCanceledListener(this);
-        this.googleMap.setOnCameraMoveListener(this);
     }
 
     public void refresh() {
